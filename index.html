@@ -1,19 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/script.js" defer></script>
-    <title>Mario Jump</title>
-  </head>
-  <body>
-    <div class="game-board">
-      <audio src="sons/gameover.wav"></audio>
+<html>
+<head>
+<script>
+  function iniciarJogo() {
+    var numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+    var jogador1 = parseInt(prompt("Jogador 1, escolha um número entre 1 e 100:"));
+    var jogador2 = parseInt(prompt("Jogador 2, escolha um número entre 1 e 100:"));
 
-      <img src="imagens/clouds.png" class="clouds" alt="" />
-      <img src="imagens/mario.gif" class="mario" alt="" srcset="" />
-      <img src="./imagens/pipe.png" class="pipe" alt="imagem do tubo" />
-    </div>
-  </body>
+    if (Math.abs(jogador1 - numeroAleatorio) > Math.abs(jogador2 - numeroAleatorio)) {
+      alert("Jogador 1 venceu! O número era " + numeroAleatorio);
+    } else if (Math.abs(jogador1 - numeroAleatorio) < Math.abs(jogador2 - numeroAleatorio)) {
+      alert("Jogador 2 venceu! O número era " + numeroAleatorio);
+    } else {
+      alert("Empate! O número era " + numeroAleatorio);
+    }
+  }
+</script>
+</head>
+<body>
+  <h1>Jogo de Adivinhação</h1>
+  <button onclick="iniciarJogo()">Iniciar Jogo</button>
+</body>
 </html>
